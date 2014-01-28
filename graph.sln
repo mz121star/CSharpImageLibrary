@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "graph", "graph\graph.vbproj", "{257017E4-3440-47BB-8F5F-CD83F29DC954}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "graph_cs", "graph_cs\graph_cs.csproj", "{79FE52C8-8885-4177-9BE6-4E8726E9EFAC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageLibrary", "ImageLibrary\ImageLibrary.csproj", "{86926EC7-C866-4E4E-A43E-A9E70FA2DD18}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{257017E4-3440-47BB-8F5F-CD83F29DC954}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{257017E4-3440-47BB-8F5F-CD83F29DC954}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{257017E4-3440-47BB-8F5F-CD83F29DC954}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{257017E4-3440-47BB-8F5F-CD83F29DC954}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79FE52C8-8885-4177-9BE6-4E8726E9EFAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79FE52C8-8885-4177-9BE6-4E8726E9EFAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79FE52C8-8885-4177-9BE6-4E8726E9EFAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79FE52C8-8885-4177-9BE6-4E8726E9EFAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86926EC7-C866-4E4E-A43E-A9E70FA2DD18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86926EC7-C866-4E4E-A43E-A9E70FA2DD18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86926EC7-C866-4E4E-A43E-A9E70FA2DD18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86926EC7-C866-4E4E-A43E-A9E70FA2DD18}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
