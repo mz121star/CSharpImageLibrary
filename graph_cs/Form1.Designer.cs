@@ -38,6 +38,8 @@
             this.btn_binary = new System.Windows.Forms.Button();
             this.txtthreshold = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btn_start = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.befor_pic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.after_pic)).BeginInit();
             this.SuspendLayout();
@@ -132,11 +134,32 @@
             this.label1.TabIndex = 8;
             this.label1.Text = "阈值：";
             // 
+            // btn_start
+            // 
+            this.btn_start.Location = new System.Drawing.Point(15, 322);
+            this.btn_start.Name = "btn_start";
+            this.btn_start.Size = new System.Drawing.Size(75, 23);
+            this.btn_start.TabIndex = 9;
+            this.btn_start.Text = "识别";
+            this.btn_start.UseVisualStyleBackColor = true;
+            this.btn_start.Click += new System.EventHandler(this.btn_start_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(13, 348);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(41, 12);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "label2";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(845, 626);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.btn_start);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtthreshold);
             this.Controls.Add(this.btn_binary);
@@ -167,6 +190,8 @@
         private System.Windows.Forms.Button btn_binary;
         private System.Windows.Forms.TextBox txtthreshold;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btn_start;
+        private System.Windows.Forms.Label label2;
     }
 }
 
