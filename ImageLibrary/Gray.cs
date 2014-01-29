@@ -84,6 +84,29 @@ namespace ImageLibrary
             }
             return image;
         }
+
+       public static string PixelImage(Bitmap srcImage)
+       {
+           var image = srcImage;
+           int width = image.Width - 1;
+           int height = image.Height - 1;
+           StringBuilder stringBuilder = new StringBuilder();
+           Color color;
+           for (int i = 0; i < height; i++)
+           {
+               for (int j =0;j< width;  j++)
+               {
+
+                   color = image.GetPixel(j,i);        //计算灰度值 
+                    
+                   //设置像素为灰度
+                   var v = color.R == 255 ? "l" : "0";
+                   stringBuilder.Append(v);
+               }
+               stringBuilder.Append("\r");
+           }
+           return stringBuilder.ToString();
+       }
        
     }
 }
