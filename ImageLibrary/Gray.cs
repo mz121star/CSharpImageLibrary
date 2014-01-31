@@ -51,6 +51,32 @@ namespace ImageLibrary
             return image;
         }
        /// <summary>
+       /// 生成灰度直方图（范围为0-255）
+       /// </summary>
+       /// <param name="sBitmap">灰度化之后的图像</param>
+       /// <returns></returns>
+        public static int[] GrayScaleHistogram(Bitmap srcImage)
+       {
+           int[] histogram=new int[256];
+           var image = srcImage;
+           int width = image.Width - 1;
+           int height = image.Height - 1;
+
+           Color color;
+           for (int i = width; i >= 0; i--)
+           {
+               for (int j = height; j >= 0; j--)
+               {
+
+                   color = image.GetPixel(i, j);        //计算灰度值 
+                   histogram[color.R]++;
+
+               }
+           }
+           return histogram;
+
+       }
+       /// <summary>
        /// 二值化
        /// </summary>
        /// <param name="srcImage"></param>
@@ -84,14 +110,66 @@ namespace ImageLibrary
             }
             return image;
         }
+       /// <summary>
+       /// 中值滤波降噪
+       /// </summary>
+       /// <param name="srcImage"></param>
+       /// <returns></returns>
+       public static Bitmap NoiseReduction(Bitmap srcImage)
+       {
+           var image = srcImage;
+           int width = image.Width - 1;
+           int height = image.Height - 1;
+           int count = 0;
+           Color color;
+           for (int i = 0; i <width; i++)
+           {
+               for (int j =0;  j <=height; j++)
+               {
+                   count = 0;
+                   color = image.GetPixel(i, j);        //计算灰度值 
+                   Color colorResult;
+                   if (i > 0 && j > 0)
+                   {
+                       try
+                       {
+                           count = image.GetPixel(i - 1, j - 1).R + image.GetPixel(i, j - 1).R +
+                                   image.GetPixel(i + 1, j - 1).R
+                                   + image.GetPixel(i - 1, j).R + image.GetPixel(i + 1, j).R
+                                   + image.GetPixel(i - 1, j + 1).R + image.GetPixel(i, j + 1).R +
+                                   image.GetPixel(i + 1, j + 1).R;
+                       }
+                       catch (Exception)
+                       {
 
-       public static string PixelImage(Bitmap srcImage)
+                       }
+
+                       if (count == 2040)
+                       {
+                           colorResult = Color.FromArgb(255, 255, 255);
+                           image.SetPixel(i, j, colorResult);
+                       }
+                   }
+                   //设置像素为灰度
+                 
+               }
+           }
+           return image;
+       }
+     /// <summary>
+     /// 生成文字图形（srcImage必须为二值化后的图像）
+     /// </summary>
+     /// <param name="srcImage"></param>
+     /// <returns></returns>
+       public static int[,] PixelImage(Bitmap srcImage)
        {
            var image = srcImage;
            int width = image.Width - 1;
            int height = image.Height - 1;
            StringBuilder stringBuilder = new StringBuilder();
            Color color;
+           var imagearray = new int[height,width];
+
            for (int i = 0; i < height; i++)
            {
                for (int j =0;j< width;  j++)
@@ -100,12 +178,14 @@ namespace ImageLibrary
                    color = image.GetPixel(j,i);        //计算灰度值 
                     
                    //设置像素为灰度
-                   var v = color.R == 255 ? "l" : "0";
+                   var v = color.R == 255 ? 1 : 0;
                    stringBuilder.Append(v);
+                   imagearray[i, j] = v;
                }
                stringBuilder.Append("\r");
            }
-           return stringBuilder.ToString();
+           return imagearray;
+
        }
        
     }
